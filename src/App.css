@@ -1,0 +1,543 @@
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+/* ===========================
+   HEADER / NAVBAR
+=========================== */
+header {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;   /* ✅ Sticky navbar */
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  color: #00bfff; /* ✅ Light Blue Logo */
+  font-weight: bold;
+  font-size: 2rem; /* ✅ Bigger logo text */
+  letter-spacing: 1px;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: #f0f0f0;          /* ✅ Light gray text by default */
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;         /* ✅ Semi-bold */
+  font-size: 1.1rem;        /* ✅ Bigger font */
+  letter-spacing: 0.5px;    /* ✅ Professional spacing */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+header nav a:hover {
+  color: #00bfff;           /* ✅ Light Blue Hover */
+  transform: translateY(-2px); /* ✅ Slight lift on hover */
+}
+
+/* ===========================
+   NAV LINKS CLICK ANIMATION
+=========================== */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 4px 8px;
+}
+
+/* Hover effect (already in your CSS but keeping consistent) */
+.nav-link:hover {
+  color: #00bfff;
+  transform: translateY(-2px);
+}
+
+/* ✅ Click (active state) */
+.nav-link:active {
+  transform: scale(0.92); /* Slight shrink */
+  color: #00bfff;
+}
+
+/* ✅ Ripple Effect on Click */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 191, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.6s ease;
+}
+
+.nav-link:active::after {
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+}
+
+
+
+/* ===========================
+   HOME / ABOUT SECTION
+=========================== */
+.about-section {
+  height: 100vh; /* Full screen */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* ✅ Align items to the top instead of full center */
+  padding-top: 80px;         /* ✅ Push content down slightly (adjust as needed) */
+  background: #000; 
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  width: 100%;
+  height: auto; /* ✅ Allow natural height */
+}
+
+
+/* ===========================
+   HOME / ABOUT SECTION
+=========================== */
+.about-section {
+  height: 100vh; /* Full screen */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ✅ Move upward */
+  padding-top: 40px; /* ✅ Push section upward */
+  background: #000; /* Black background */
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Left: Profile Photo */
+.about-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-photo img {
+  width: 600px;   /* ✅ Increased size */
+  height: 600px;  /* ✅ Increased size */
+  object-fit: cover;
+  border-radius: 50%; 
+  border: 10px solid #add8e6; 
+  box-shadow: 0px 15px 40px rgba(173, 216, 230, 0.9);
+  animation: bounceUpDown 2s infinite ease-in-out, glowPulse 3s infinite alternate;
+}
+
+/* ✅ Bounce Animation */
+@keyframes bounceUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+/* ✅ Glow Pulse */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0px 12px 35px rgba(173, 216, 230, 0.8);
+    border-color: #add8e6;
+  }
+  50% {
+    box-shadow: 0px 18px 45px rgba(255, 255, 255, 1);
+    border-color: #ffffff;
+  }
+  100% {
+    box-shadow: 0px 15px 40px rgba(0, 191, 255, 0.9);
+    border-color: #00bfff;
+  }
+}
+
+/* Right: About Text */
+.about-text {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Still centered */
+  text-align: center;
+  transform: translateY(-80px); /* Move section up */
+}
+
+
+.about-text h2 {
+  margin-bottom: 20px;
+  font-size: 3rem; /* ✅ Bigger heading */
+  color: #00bfff;
+  font-weight: bold;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: #ddd;
+  font-size: 1.3rem; /* ✅ Slightly bigger text */
+  max-width: 650px;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo img {
+    width: 280px;  /* ✅ Bigger on mobile too */
+    height: 280px;
+  }
+
+  .about-text {
+    padding: 20px;
+  }
+}
+
+
+.skills-section {
+  background-color: black;
+  color: lightblue;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.skills-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.skills-cards {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;
+  gap: 40px;
+}
+
+.card {
+  background: #111;
+  border: 2px solid lightblue;
+  padding: 40px;
+  border-radius: 15px;
+  width: 80%; /* full-page look */
+  max-width: 800px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(173, 216, 230, 0.6);
+}
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  
+  min-height: 100vh;
+  background: black;
+  padding-top: 40px;
+}
+
+.contact-card {
+  background: #111;
+  color: #00bfff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 191, 255, 0.4);
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-card:hover {
+  transform: scale(1.03);
+}
+
+.contact-card h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00bfff;
+}
+
+/* 🔹 Box for each contact item */
+.contact-item {
+  background: #1a1a1a;
+  margin: 12px 0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 191, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* 🔹 Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Hover animation */
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 191, 255, 0.5);
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.contact-item a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+
+  /* ===========================
+   FOOTER (Sticky & Centered)
+=========================== */
+footer {
+  text-align: center;
+  padding: 15px 20px;
+  background: #111;
+  color: white;
+  width: 100%;
+  margin-top: auto;   /* ✅ Push footer to bottom */
+  position: relative; /* ✅ Removes overlap issues */
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;  /* ✅ Align content in center */
+  align-items: center;
+  flex-direction: column;   /* ✅ Stack content neatly */
+}
+
+/* Optional: Footer text style */
+footer p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+/* Optional: Social Icons (if you add them later) */
+footer .social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+footer .social-icons a {
+  color: #00bfff;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+footer .social-icons a:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ===========================
+   TOGGLE THEME (Dark & Light)
+=========================== */
+
+/* Light Mode (default) */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+body.light-mode header {
+  background: #f1f1f1;
+  color: #111;
+}
+
+body.light-mode header h1 {
+  color: #e50914; /* Red logo in light mode */
+}
+
+body.light-mode header nav a {
+  color: #111;
+}
+
+body.light-mode header nav a:hover {
+  color: #e50914;
+}
+
+/* About Section (Light) */
+body.light-mode .about-section {
+  background: #fff;
+  color: #111;
+}
+
+body.light-mode .about-text h2 {
+  color: #e50914;
+}
+
+body.light-mode .about-text p {
+  color: #444;
+}
+
+/* Skills Section (Light) */
+body.light-mode .skills-section {
+  background: #fafafa;
+  color: #111;
+}
+
+body.light-mode .card {
+  background: #fff;
+  border: 2px solid #e50914;
+  color: #111;
+}
+
+/* Contact Section (Light) */
+body.light-mode #contact {
+  background: #fff;
+}
+
+body.light-mode .contact-card {
+  background: #fff;
+  color: #111;
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.3);
+}
+
+body.light-mode .contact-item {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* Footer (Light) */
+body.light-mode footer {
+  background: #f1f1f1;
+  color: #111;
+}
+
+/* ===========================
+   Dark Mode (default from your CSS)
+=========================== */
+body.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+.lottie-toggle {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+/* ===========================
+   RESUME DOWNLOAD BUTTON
+=========================== */
+.resume-container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #00bfff; /* Light Blue */
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 15px rgba(0, 191, 255, 0.5);
+}
+
+/* Shine Effect */
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(-25deg);
+}
+
+/* Hover */
+.resume-btn:hover {
+  transform: scale(1.07);
+  background: #009acd; /* Slightly darker blue */
+  box-shadow: 0 10px 25px rgba(0, 191, 255, 0.6);
+}
+
+.resume-btn:hover::before {
+  left: 100%;
+  transition: left 0.7s ease;
+}
+
+
+
+
