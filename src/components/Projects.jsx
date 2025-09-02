@@ -6,20 +6,20 @@ const Projects = () => {
   const [portfolioIndex, setPortfolioIndex] = useState(0);
 
   const concertImages = [
-    "/Screenshot 2025-09-01 101938.png",
-    "/Screenshot 2025-09-01 101900.png",
-    "/Screenshot 2025-09-01 101821.png",
-    "/Screenshot 2025-09-01 101739.png",
-    "/Screenshot 2025-09-01 101711.png",
-    "/Screenshot 2025-09-01 093315.png",
-    "/Screenshot 2025-09-01 093416.png",
+    "/concert8.png",
+    "/concert2.png",
+    "/concert3.png",
+    "/concert4.png",
+    "/concert5.png",
+    "/concert6.png",
+    "/concert7.png",
   ];
 
   const portfolioImages = [
-    "/Screenshot 2025-09-01 092942.png",
-    "/Screenshot 2025-09-01 102803.png",
-    "/Screenshot 2025-09-01 102831.png",
-    "/Screenshot 2025-09-01 102937.png",
+    "/concert1.png",
+    "/concert9.png",
+    "/concert10.png",
+    "/concert11.png",
   ];
 
   const nextImage = (setIndex, images, index) => {

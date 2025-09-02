@@ -5,7 +5,7 @@ const About = () => {
         
         {/* Left: Profile Photo */}
         <div className="about-photo">
-          <img src="/new one.jpg" alt="Merin K" />
+          <img src="/new-one.jpg" alt="Merin K" />
         </div>
 
         {/* Right: About Text */}
